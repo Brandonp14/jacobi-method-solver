@@ -1,0 +1,17 @@
+{
+  "name": "jacobi-method-solver",
+  "version": "0.1.0",
+  "description": "Solves strictly diagonally dominant linear systems using the Jacobi iterative method.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
