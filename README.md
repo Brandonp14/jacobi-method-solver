@@ -31,3 +31,10 @@ Direct solvers (LU, Cholesky) are exact but allocate and factorise. For large, s
 The solver checks strict diagonal dominance up front and throws if it does not hold. If your matrix is merely *weakly* dominant (`|a_ii| ≥ Σ|a_ij|`), Jacobi may still converge in practice — but this library will refuse to run rather than guess. Transform your system (row scaling, reordering) or use a different method if you need that case.
 
 Default tolerance is `1e-10` on the residual 2-norm, capped at `1000` iterations. Both are overridable via the options object.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
